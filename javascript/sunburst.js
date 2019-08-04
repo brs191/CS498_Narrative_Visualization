@@ -51,7 +51,7 @@ var svg = d3.select('svg#sunburst')
     .attr('viewBox', `${-width / 2} ${-height / 2} ${width} ${height}`)
     .on('click', () => focusOn()); 
 
-d3.json('https://github.com/brs191/bollamr2.github.io/blob/master/data/data.json', (error, root) => {
+d3.json('../data/data.json', (error, root) => {
     if (error) throw error;
 
     root = d3.hierarchy(root);
