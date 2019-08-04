@@ -1,1 +1,190 @@
-Hello World
+<html>
+<script src='https://d3js.org/d3.v4.min.js'></script>
+
+<style>
+    path {
+        stroke: black;
+    }
+
+    .body {
+        font-family: Arial;
+    }
+
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+    .x.axis path {
+        display: none;
+    }
+
+    .bar {
+        fill: orange;
+    }
+
+    .bar:hover {
+        fill: orangered;
+    }
+
+    .axis {
+        font: 10px sans-serif;
+    }
+
+    .slice {
+        cursor: pointer;
+    }
+
+    .slice .main-arc {
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+
+    .slice .hidden-arc {
+        fill: none;
+    }
+
+    .slice text {
+        pointer-events: none;
+        dominant-baseline: middle;
+        text-anchor: middle;
+    }
+</style>
+
+
+<style>
+p {
+    font-size:15px;
+}
+</style>
+
+<style>
+    body {
+        font-family: Sans-serif;
+        font-size: 7px;
+    }
+
+    .line {
+        stroke-width: 2;
+        fill: none;
+    }
+
+    .axis path {
+        stroke: black;
+    }
+
+    .text {
+        font-size: 12px;
+    }
+
+    .title-text {
+        font-size: 12px;
+    }
+</style>
+
+<body>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Demographics')">Demographics</button>
+        <button class="tablinks" onclick="openCity(event, 'Growth Rate')">Growth Rate</button>
+        <button class="tablinks" onclick="openCity(event, 'Money Invested')">Money Invested</button>
+        <button class="tablinks" onclick="openCity(event, 'Credits')">Credits</button>
+
+    </div>
+
+    <div id="Demographics" class="tabcontent" style="display:block">
+        <p>There is a wide gender disparity in the literacy rate in India: effective literacy rates (age 7 and above) in 2011 were 80.9% for men and 64.60% for women.</p>
+        <p>The low female literacy rate has had a dramatically negative impact on family planning and population stabillisation efforts in India.</p>
+        <p>Studies have indicated that female literacy is a strong predictor of the use of contraception among married Indian couples,</p>
+        <p>even when women do not otherwise have economic independence. The census provided a positive indication that growth in </p>
+        <p>female literacy rates (11.8%) was substantially faster than in male literacy rates (6.9%) in the 2001–2011 decadal period,</p>
+        <p>which means the gender gap appears to be narrowing.</p>
+        <p>The following chart shows the distribution of literacy rate over States->Districts->Male & Female.</p>
+        <p><b>The chart can be zoomed in by clicking on the layers and zoomed out by clicking at the center !!</b></p>
+        <svg id="sunburst"></svg>
+        <script src="./javascript/sunburst.js"></script>
+
+    </div>
+
+    <div id="Growth Rate" class="tabcontent">
+        <p>Literacy in India is a key for socio-economic progress,[2] and the Indian literacy rate has grown to 74.04% (2011 provisional census figures).</p>
+        <p>Despite government programmes, India's literacy rate increased only "sluggishly".The 2011 census, indicated a 2001–2011 decadal</p>
+        <p> literacy growth of 9.2%, which is slower than the growth seen during the previous decade. An old 1990 study estimated that it would take until </p>
+        <p>2060 for India to achieve universal literacy at then-current rate of progress.</p>
+        <p>The following chart shows the growth of literacy rate in all of the 29 states and 7 union territories of India.</p>
+        <svg id="barchart"></svg>
+        <script src="./javascript/barchart.js"></script> 
+
+    </div>
+
+    <div id="Money Invested" class="tabcontent">
+        <p>Through there is a steady increase in the government investment in public education for the primary and secondary level education,</p>
+        <p>there is a sharp drop in government investment in tertiary education from 2009. In India, getting a degree is important as most companies</p>
+        <p>require a degree for you to be eligible to apply for a job. The reduction of the goverment investment in tertiary education</p>
+        <p>not only reduces number of graduates but could also create a potential umemployment problem, which inturn could increase illeteracy rate in next generation</p>
+        <p>The following chart shows Indian goverment investment in public education.</p>
+        <svg id="linechart"></svg>
+        <script src="./javascript/linechart.js"></script>
+    </div>
+
+    <div id="Credits" class="tabcontent">
+        <p><b>Datasets: </b>
+                <ul><p><a href="https://www.kaggle.com/theworldbank/education-statistics">kaggle</a> for providing Education Statistics datasets</p></ul>
+                <ul><p><a href="https://www.kaggle.com/tirtharajsur/indian-state-analysis-on-population-and-literacy">kaggle</a> for providing Indian State Analysis datasets</p></ul>
+                <ul><p><a href="https://www.indexmundi.com/facts/india#Education">Indexmundi</a> for providing Indian Education datasets</p></ul>
+                <ul><p><a href="https://en.wikipedia.org/wiki/Education_in_India">Wikipedia</a> for providing Education in India datasets</p></ul>
+        </p>
+        <p><b>Visulization Library: </b>
+        <ul><a href="https://github.com/d3/d3/blob/master/API.md"><p>D3 v4</p></a></ul>
+        </p>           
+        <p><b>Version Control System:</b>
+            <ul><p><a href="https://github.com/brs191/CS498_Narrative_Visualization">Git</a> for providing efficient version controlling system</p></ul>
+        </p>
+        <p><b>Author: </b>Bollam Raja Shekar</p>
+    </div>
+    <script src="./javascript/tab-operation.js"></script>
+    <p><b>Note : Due to the size and complexity of the data used in the sunburst chart (DEMOGRAPHICS tab) it will</b></p>
+    <p><b>take couple of seconds for d3 to load the file after clicking on the DEMOGRAPHICS tab. I request you to be patitent while it's loading.</b></p>
+
+
+</body>
+
+</html>
